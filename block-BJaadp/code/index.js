@@ -16,19 +16,28 @@ let persons = [
 // NOTE: Use reduce method whereever you can to solve this exercise:
 
 // Find the average grade
-
+let gradeArr = persons.map((person)=>person.grade);
+let avgGrade = gradeArr.reduce((acc,cv)=>{
+  return acc +cv;
+},0)/ gradeArr.length;
 // Find the average grade of male
-
+let maleGrades = persons.filter((person)=>person.sex === 'M').map((person)=>person.grade);
+let avgMaleGrade = gradeArr.reduce((acc,cv)=>{
+  return acc +cv;
+},0)/ maleGrades.length;
 // Find the average grade of female
-
+let femaleGrades = persons.filter((person)=>person.sex === 'F').map((person)=>person.grade);
+let avgFemaleGrade = gradeArr.reduce((acc,cv)=>{
+  return acc +cv;
+},0)/ femaleGrades.length;
 // Find the highest grade
-
+[...gradeArr].sort((a,b)=>a-b).pop();
 // Find the highest grade in male
-
+[...maleGrades].sort((a,b)=>a-b).pop();
 // Find the highest grade in female
-
+[...femaleGrades].sort((a,b)=>a-b).pop();
 // Find the highest grade for people whose name starts with 'J' or 'P'
-
+[...persons].filter((person)=>person.name.startsWith('J')|| person.name.startsWith('P')).map((person)=>person.grade).sort((a,b)=>a-b).pop();
 const fruitBasket = [
   'banana',
   'cherry',
