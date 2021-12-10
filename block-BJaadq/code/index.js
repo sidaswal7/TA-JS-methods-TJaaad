@@ -1,7 +1,11 @@
 // NOTE: You can not use reduce methods to solve this exercise
 
 function countAllPeople() {
-  // your code goes here
+  for(let house of got.houses){
+    for(let person of house.people){
+      console.log(person.name);
+    }
+  }
 }
 
 function peopleByHouses() {
