@@ -1,39 +1,68 @@
 // NOTE: You can not use reduce methods to solve this exercise
 
 function countAllPeople() {
-  for(let house of got.houses){
-    for(let person of house.people){
-      console.log(person.name);
-    }
-  }
+  let totalPeople = 0;
+  got.houses.forEach((house)=>{
+    totalPeople = totalPeople + house.people.length;
+  });
+  return totalPeople;
 }
 
 function peopleByHouses() {
-  // your code goes here
+  let final = {};
+  got.houses.forEach(house=>{
+    final[house.name]= house.people.length;
+  })
+  return final;
 }
 
 function everyone() {
-  // your code goes here
+  let final = [];
+  got.houses.forEach(house=>{
+    let peopleName=house.people.map((person)=>person.name);
+    final=final.concat(peopleName);
+  })
+  return final;
 }
 
 function nameWithS() {
-  // your code goes here
+  let final = [];
+  got.houses.forEach(house=>{
+    let peopleNameWithS= house.people.filter((person)=>person.name.startsWith("S")).map((person)=>person.name);
+    final = final.concat(peopleNameWithS);
+  })
+  return final;
 }
 
 function nameWithA() {
-  // your code goes here
+  let final = [];
+  got.houses.forEach(house=>{
+    let peopleNameWithA= house.people.filter((person)=>person.name.startsWith("A")).map((person)=>person.name);
+    final = final.concat(peopleNameWithA);
+  })
+  return final;
 }
 
 function surnameWithS() {
-  // your code goes here
+  let allPeople = everyone();
+  return allPeople.filter((name)=>
+    name.split(" ")[1].toLowerCase().startsWith("s")
+  );
 }
 
 function surnameWithA() {
-  // your code goes here
+  let allPeople = everyone();
+  return allPeople.filter((name)=>
+    name.split(" ")[1].toLowerCase().startsWith("a")
+  );
 }
 
 function peopleNameOfAllHouses() {
-  // your code goes here
+  let final ={};
+  got.houses.forEach(house=>{
+    final[house.name]= house.people.map((person)=>person.name); 
+  });
+  return final;
 }
 
 // Testing your result after writing your function
